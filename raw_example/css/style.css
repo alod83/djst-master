@@ -1,0 +1,156 @@
+body
+{
+	margin					: 0;
+	max-width				: 100%;
+	font-family				: Helvetica,Verdana,Arial,sans-serif;
+}
+
+header
+{
+	width					: 100%;
+	background-color		: #000000;
+	position				: fixed;
+	z-index					: 15;
+  	box-shadow				: 0px 2px 20px;
+  	opacity					: 0.6;
+  	top						: 0;
+  	
+}
+
+
+
+
+.slide
+{
+  	width					: 90%;
+  	position				: relative;
+  	padding					: 0;
+  	margin					: 0;
+  	text-align				: center;
+  	left					: 5%;
+  	right					: 5%;
+}
+
+.slide-title
+{
+  	width					: 100%;
+  	left					: 0;
+  	right					: 0;
+}
+
+ 
+#slide1
+{
+  	padding					: 150px 0;
+  	background-image		: url("../media/sfondo1.jpg");
+  	background-color		: #ffffff;
+  	background-repeat		: no-repeat;
+  	text-shadow				: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.parallax
+{
+	background-size			: cover;
+  	background-attachment	: fixed;
+}
+
+.title{
+	font-size				: 80px;
+	color					: #ffffff;
+	text-transform			: uppercase;
+	font-weight				: 100;
+	background-color		: rgba(0,0,0,0.6);
+	width					: 70%;
+	margin-right			: 15%;
+	margin-left				: 15%;
+	margin-top				: 10%;
+}
+
+.text{
+	font-size				: 22px;
+	z-index					: 10;
+	text-align				: justify;
+  	padding					: 30px 0;
+  	background-size			: 400% 400%;
+  	color					: #000000;
+  	background-color		: #ffffff;
+  	font-family				: Helvetica,Verdana,Arial,sans-serif;	
+}
+
+.divRight{
+	float					: right;
+	width					: 35%;
+	margin-right			: 10%;
+	margin-left				: 10%;
+	margin-top				: -650px;
+	
+}
+
+.divLeft{
+	width					: 40%;
+	height					: 600px;
+	margin-left				: 1%;
+	margin-right			: 5%;
+	margin-top				: 3%;
+}
+
+
+.sectionTitle{
+	text-align				: center;
+	font-size				: 50px;
+	color					: #000000;
+  	margin-top				: 70px
+}
+
+
+
+.textImage{
+	font-size				: 50px;
+	color					: #ffffff;
+	position				: relative;
+	padding-top				: 250px;
+  	padding-bottom			: 250px;
+	margin					: 0 auto;
+	font-weight				: 100;
+}
+
+
+
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-variant			: small-caps;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.iframe-plotly
+{
+	width:	600px;
+	height:	400px;
+}

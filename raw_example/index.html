@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+		<title>L'altra met&agrave; del calcio</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/mobile.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+	</head>
+	
+	<body>
+		<header>
+			<div class="topnav" id="myTopnav">
+  <a href="#slide2" class="active">Introduzione</a>
+					<a href="#slide3" onclick="toggle()">Caratteristiche</a>
+					<a href="#slide4" onclick="toggle()">Interesse</a>
+					<a href="#slide5" onclick="toggle()">Contorno</a>
+					<a href="#slide6" onclick="toggle()">Nazionale</a>
+  <a href="javascript:void(0);" class="icon" onclick="toggle()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+			
+			
+		</header>
+	
+		<section class="slide slide-title parallax" id="slide1">	
+			<h1 class="title">L'altra met&agrave; del calcio</h1>
+		</section>
+
+	 	
+	 	<section class="slide text" id="slide2">
+			<h1 class="sectionTitle">
+				Introduzione
+			</h1>
+			
+		</section>
+		
+		<section class="slide text" id="slide3">
+			<h1 class="sectionTitle">
+				Caratteristiche delle calciatrici italiane
+			</h1>
+			
+			<div class="divLeft">
+				<iframe src="html/ranking.html" class="iframe-plotly"></iframe>
+			</div>
+			
+			<div class="divRight">
+			<p>Il grafico mostra il ranking VS il GDP. </p>
+			<p>Il Lussemburgo &egrave; il Paese che investe di pi&ugrave;.</p>
+			</div>
+			
+		</section>
+		
+		<section class="slide text" id="slide4">
+			<h1 class="sectionTitle">
+				Interesse verso il calcio femminile
+			</h1>
+		</section>
+		
+		<section class="slide text" id="slide5">
+			<h1 class="sectionTitle">
+				Contorno oltre la carriera - arbitri, allenatrici
+			</h1>
+		</section>
+		
+		<section class="slide text" id="slide6">
+			<h1 class="sectionTitle">
+				Nazionale
+			</h1>
+		</section>
+		
+		<script>
+function toggle() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else if (x.className === "topnav responsive")
+  	x.className= "topnav";
+  else{
+    x.className = "topnav";
+  }
+}
+
+</script>
+	</body>
+</html>
