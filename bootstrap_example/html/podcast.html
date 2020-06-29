@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Extracted from: https://codepen.io/davatron5000/pen/uqktG -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    <link rel="stylesheet" href="css/podcast.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    
+  </head>
+  <body>
+  	<div class="pcast-player">
+  		<div class="pcast-player-controls">
+    		<button class="pcast-play"><i class="fa fa-play"></i><span>Play</span></button>
+    		<button class="pcast-pause"><i class="fa fa-pause"></i><span>Pause</span></button>
+    		<button class="pcast-rewind"><i class="fa fa-fast-backward"></i><span>Rewind</span></button>
+   	 		<span class="pcast-currenttime pcast-time">00:00</span>
+    		<progress class="pcast-progress" value="0"></progress>
+    		<span class="pcast-duration pcast-time">00:00</span>
+    		<button class="pcast-speed">1x</button>
+   			 <button class="pcast-mute"><i class="fa fa-volume-up"></i><span>Mute/Unmute</span></button>
+  		</div>
+  		<!-- PUT HERE YOUR AUDIO FILE -->
+  		<audio src="https://s3.amazonaws.com/ShopTalk/080_rapidfire_19.mp3"></audio><a class="pcast-download" href="https://s3.amazonaws.com/ShopTalk/080_rapidfire_19.mp3" download>Download MP3</a>
+	</div>
+	
+	<script>
+	(function(){
+
+  var pcastPlayers = document.querySelectorAll('.pcast-player');
+  var speeds = [ 1, 1.5, 2, 2.5, 3 ]    
+  
+  for(i=0;i<pcastPlayers.length;i++) {
+    var player = pcastPlayers[i];
+    var audio = player.querySelector('audio');
+    var play = player.querySelector('.pcast-play');
+    var pause = player.querySelector('.pcast-pause');
+    var rewind = player.querySelector('.pcast-rewind');
+    var progress = player.querySelector('.pcast-progress');
+    var speed = player.querySelector('.pcast-speed');
+    var mute = player.querySelector('.pcast-mute');
+    var currentTime = player.querySelector('.pcast-currenttime');
+    var duration = player.querySelector('.pcast-duration');
+    
+    var currentSpeedIdx = 0;
+
+    pause.style.display = 'none';
+    
+    var toHHMMSS = function ( totalsecs ) {
+        var sec_num = parseInt(totalsecs, 10); // don't forget the second param
+        var hours   = Math.floor(sec_num / 3600);
+        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+        var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+        if (hours   < 10) {hours   = "0"+hours; }
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        
+        var time = hours+':'+minutes+':'+seconds;
+        return time;
+    }
+    
+    audio.addEventListener('loadedmetadata', function(){
+      progress.setAttribute('max', Math.floor(audio.duration));
+      duration.textContent  = toHHMMSS(audio.duration);
+    });
+    
+    audio.addEventListener('timeupdate', function(){
+      progress.setAttribute('value', audio.currentTime);
+      currentTime.textContent  = toHHMMSS(audio.currentTime);
+    });
+    
+    play.addEventListener('click', function(){
+      this.style.display = 'none';
+      pause.style.display = 'inline-block';
+      pause.focus();
+      audio.play();
+    }, false);
+
+    pause.addEventListener('click', function(){
+      this.style.display = 'none';
+      play.style.display = 'inline-block';
+      play.focus();
+      audio.pause();
+    }, false);
+ 
+    rewind.addEventListener('click', function(){
+      audio.currentTime -= 30;
+    }, false);
+    
+    progress.addEventListener('click', function(e){
+      audio.currentTime = Math.floor(audio.duration) * (e.offsetX / e.target.offsetWidth);
+    }, false);
+
+    speed.addEventListener('click', function(){
+      currentSpeedIdx = currentSpeedIdx + 1 < speeds.length ? currentSpeedIdx + 1 : 0;
+      audio.playbackRate = speeds[currentSpeedIdx];
+      this.textContent  = speeds[currentSpeedIdx] + 'x';
+      return true;
+    }, false);
+
+    mute.addEventListener('click', function() {
+      if(audio.muted) {
+        audio.muted = false;
+        this.querySelector('.fa').classList.remove('fa-volume-off');
+        this.querySelector('.fa').classList.add('fa-volume-up');
+      } else {
+        audio.muted = true;
+        this.querySelector('.fa').classList.remove('fa-volume-up');
+        this.querySelector('.fa').classList.add('fa-volume-off');
+      }
+    }, false);
+  }
+})(this);
+	</script>
+
+</body
+</html>
